@@ -33,9 +33,9 @@ class Chunk:
         # Check them
         myCRC = binascii.crc32(rawdata)
         if pngCRC != myCRC:
-            print "ERROR: got CRC %d, calculated CRC %d" % (pngCRC, myCRC)
+            print("ERROR: got CRC %d, calculated CRC %d" % (pngCRC, myCRC))
         # TODO: Somehow using getattr() would be better I think...
-        if globals().has_key(chunktype):
+        if chunktype in globals():
             c = globals()[chunktype].create(data)
         else:
             c = Chunk(chunktype, data)

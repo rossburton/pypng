@@ -6,7 +6,7 @@ if __name__ == "__main__":
     
     def text_cb(chunk):
         if c.keyword == "Metadata":
-            print c.content
+            print(c.content)
 
     png = Png.open(file(sys.argv[1], "rb"))
     [text_cb(c) for c in png.chunks if isinstance(c, tEXt)]

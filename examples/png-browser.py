@@ -196,7 +196,7 @@ class PngBrowser:
         gtk.main_quit()
 
     def on_chunk_add_activate(self, menuitem):
-        print "ADD"
+        print("ADD")
         
     def on_chunk_remove_activate(self, menuitem):
         (store, iter) = self.chunkview.get_selection().get_selected()

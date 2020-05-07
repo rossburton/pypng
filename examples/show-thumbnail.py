@@ -7,5 +7,5 @@ if __name__ == '__main__':
     png = Png.open(file(sys.argv[1], "rb"))
     
     for c in [c for c in png.chunks if c.type == 'thMB']:
-        print c.data
+        print(c.data)
         sys.exit(0)

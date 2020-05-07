@@ -5,7 +5,7 @@ if __name__ == "__main__":
     from PNG import Png, tEXt
     
     if len(sys.argv) != 4:
-        print "Syntax: png-set-text filename.png key content"
+        print("Syntax: png-set-text filename.png key content")
         sys.exit(1)
         
     (filename, key, content) = sys.argv[1:]
