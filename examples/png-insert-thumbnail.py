@@ -9,7 +9,7 @@ if __name__ == "__main__":
     
     THUMBNAIL_CHUNK = 'thMB'
     
-    pixbuf = gdk.pixbuf_new_from_file(sys.argv[1])
+    pixbuf = gdk.pixbuf_new_from_open(sys.argv[1])
     
     width = pixbuf.get_width()
     height = pixbuf.get_height()
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     THUMB_FILENAME = "/tmp/temp-thumb.png"
     thumb.save(THUMB_FILENAME, "png")
     thumb = ""
-    for line in file(THUMB_FILENAME, 'rb'):
+    for line in open(THUMB_FILENAME, 'rb'):
         thumb = thumb + line
     # End of nasty evil foul hack
     
@@ -50,6 +50,6 @@ if __name__ == "__main__":
     # Insert this chunk at the beginning, after the IHDR and probably after the RDF.
     png.chunks.insert(1, c)
     
-    f = file(sys.argv[1], 'wb')
+    f = open(sys.argv[1], 'wb')
     png.write(f)
     f.close()

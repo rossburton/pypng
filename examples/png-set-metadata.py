@@ -10,7 +10,7 @@ if __name__ == "__main__":
         
     (filename, key, content) = sys.argv[1:]
 
-    f = file(filename, 'rb')
+    f = open(filename, 'rb')
     png = Png.open(f)
     f.close()
     
@@ -26,6 +26,6 @@ if __name__ == "__main__":
     png.chunks.insert(1, c)
     
     # TODO: backup existing
-    f = file(filename, 'wb')
+    f = open(filename, 'wb')
     png.write(f)
     f.close()

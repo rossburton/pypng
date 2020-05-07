@@ -48,7 +48,7 @@ text comment block.
 """
 class tEXt(Chunk):
     def __init__(self, keyword, content):
-        Chunk.__init__(self, "tEXt", '')
+        Chunk.__init__(self, b"tEXt", '')
         self.keyword = keyword
         self.content = content
 
@@ -77,7 +77,7 @@ class tEXt(Chunk):
 
 class pHYs(Chunk):
     def __init__(self, pixels_x, pixels_y, units):
-        Chunk.__init__(self, 'pHYs', '')
+        Chunk.__init__(self, b'pHYs', '')
         self.pixels_x = pixels_x
         self.pixels_y = pixels_y
         self.units = units
@@ -96,7 +96,7 @@ class pHYs(Chunk):
 
 class tIME(Chunk):
     def __init__(self, year, month, day, hour, minute, second):
-        Chunk.__init__(self, 'tIME', '')
+        Chunk.__init__(self, b'tIME', '')
         self.year = year
         self.month = month
         self.day = day
@@ -121,7 +121,7 @@ A Chunk subclass which represents the image header chunk, IHDR.
 """
 class IHDR(Chunk):
     def __init__(self, width, height, depth, colourtype, compression, filtering, interlacing):
-        Chunk.__init__(self, "IHDR", '')
+        Chunk.__init__(self, b"IHDR", '')
         self.width = width
         self.height = height
         self.depth = depth
@@ -145,7 +145,7 @@ class IHDR(Chunk):
 # TODO: an incremental reader which allows for very fast reading
 
 '''The PNG header bytes.'''
-HEADER = "\x89PNG\r\n\x1A\n"
+HEADER = b"\x89PNG\r\n\x1A\n"
 
 
 class Png:
@@ -175,7 +175,7 @@ class Png:
         while 1:
             c = Chunk.read(f)
             chunks.append(c)
-            if (c.type == "IEND"):
+            if (c.type == b"IEND"):
                 # TODO: fix while loop
                 return Png(chunks)
     open = staticmethod(open)

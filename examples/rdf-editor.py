@@ -139,7 +139,7 @@ class RDFEditor (gtk.Window):
     def save_cb(self, button):
         serializer = RDF.Serializer()
         # TODO: this vapes namespace aliases, which sucks. librdf bug.
-        serializer.serialize_model_to_file("output.rdf", self.rdf)
+        serializer.serialize_model_to_open("output.rdf", self.rdf)
     
 if __name__ == '__main__':
     import sys

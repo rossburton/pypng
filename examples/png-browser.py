@@ -178,7 +178,7 @@ class PngBrowser:
         self.current_iter = None
         self.current_view = None
         
-        png = Png.open(file(sys.argv[1], "rb"))
+        png = Png.open(open(sys.argv[1], "rb"))
         for c in png.chunks:
             i = self.store.append()
             self.store.set(i, 0, c.type, 1, c)
@@ -192,7 +192,7 @@ class PngBrowser:
 
         chunks = []
         self.store.foreach(lambda model, path, iter: chunks.append(model.get_value(iter, 1)))
-        Png(chunks).write(file("test.png", "wb"))
+        Png(chunks).write(open("test.png", "wb"))
         gtk.main_quit()
 
     def on_chunk_add_activate(self, menuitem):

@@ -10,7 +10,7 @@ if __name__ == "__main__":
         
     (filename, key) = sys.argv[1:]
 
-    f = file(filename, 'rb')
+    f = open(filename, 'rb')
     png = Png.open(f)
     f.close()
     
