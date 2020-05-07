@@ -29,7 +29,7 @@ class Chunk:
         # Split and store them
         (chunktype, data) = struct.unpack(">4s%ss" % length, rawdata)
         # Finally get the CRC
-        pngCRC = struct.unpack(">i", f.read(4))[0]
+        pngCRC = struct.unpack(">I", f.read(4))[0]
         # Check them
         myCRC = binascii.crc32(rawdata)
         if pngCRC != myCRC:
